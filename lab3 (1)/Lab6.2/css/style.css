@@ -1,0 +1,266 @@
+/* ========== BIẾN & RESET ========== */
+:root {
+  --primary: #6b8a42;
+  --dark: #373b36;
+  --light: #eef3f3;
+  --grey: #dedede;
+  --mainTransition: all 0.3s linear;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 62.5%; scroll-behavior: smooth; }   /* 1rem = 10px */
+body { font-family: "Catamaran", sans-serif; font-size: 1.6rem; color: #222; line-height: 1.6; }
+
+/* ========== MENU (checkbox + :checked) ========== */
+#menu-toggle { display: none; }
+.menu-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  font-size: 30px;
+  cursor: pointer;
+  background: #eee;
+  padding: 5px 12px;
+  border-radius: 5px;
+  line-height: 1.3;
+}
+.icon-close { display: none; }                         /* chưa chọn: ẩn icon đóng */
+.nav {
+  min-height: 8vh;
+  background-color: #e5e5e5;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  display: none;                                        /* chưa chọn: ẩn menu */
+  z-index: 999;
+}
+#menu-toggle:checked ~ .nav { display: block; }
+#menu-toggle:checked ~ .menu-button .icon-open { display: none; }
+#menu-toggle:checked ~ .menu-button .icon-close { display: inline-block; }
+
+.nav__list { list-style: none; padding: 9rem 1.5rem 0; }
+.nav__link:link, .nav__link:visited {
+  display: block;
+  padding: 0.8rem 1rem;
+  margin: 0.2rem 0;
+  border-left: 3px solid transparent;
+  color: #333;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-weight: 800;
+}
+.nav__link:hover { color: var(--primary); border-left-color: var(--primary); }
+
+/* ========== HEADER (hero) ========== */
+.header {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("../images/header-bcg.jpeg") center / cover no-repeat,
+    #1c1a17;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  padding: 2rem;
+}
+.heading_first {
+  font-family: "Gochi Hand", cursive;
+  font-weight: 400;
+  font-size: 2.4rem;
+  letter-spacing: 0.5rem;
+  color: var(--primary);
+  margin-bottom: 3rem;
+}
+.heading_primary {
+  color: #fff;
+  font-size: clamp(3.4rem, 7vw, 6rem);
+  font-weight: 800;
+  letter-spacing: 0.6rem;
+  text-transform: uppercase;
+  margin-bottom: 5rem;
+}
+.header__btn:link, .header__btn:visited, .btn:link, .btn:visited {
+  display: inline-block;
+  padding: 1.1rem 3rem;
+  background: var(--primary);
+  color: var(--dark);
+  border: 5px double #a9c47f;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.7rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* ========== TRANSFORM / TRANSITION / ANIMATION (Lab 5.2) ========== */
+.nav__link:link, .nav__link:visited { transition: all 0.3s linear; }
+.nav__link:hover { transform: translateX(10%); }
+.nav__link:active { transform: translateX(10%) scale(0.95); }
+
+.heading_first--animation { animation: slideInRight 5s ease-in-out; }
+.heading_primary { animation: slideInLeft 5s ease-in-out; }
+.header__btn:link, .header__btn:visited {
+  animation: show 2s 1s linear;
+  animation-fill-mode: backwards;
+  letter-spacing: 0.7rem;
+}
+
+@keyframes slideInLeft {
+  0%   { opacity: 0.1; transform: translateX(-100%); }
+  50%  { opacity: 0.7; transform: translateX(25%); }
+  75%  { opacity: 0.9; transform: translateX(-10%); }
+  100% { transform: translateX(0); }
+}
+@keyframes slideInRight {
+  0%   { opacity: 0.1; transform: translateX(100%); }
+  50%  { opacity: 0.7; transform: translateX(-25%); }
+  75%  { opacity: 0.9; transform: translateX(10%); }
+  100% { transform: translateX(0); }
+}
+@keyframes show {
+  0%   { opacity: 0; transform: scale(2); }
+  25%  { transform: scale(1.5); }
+  50%  { transform: scale(0.9); }
+  75%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .heading_first--animation, .heading_primary, .header__btn:link, .header__btn:visited { animation: none; }
+}
+
+/* ========== FEATURES ========== */
+.feature_item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  background: #fff;
+  border: 1px solid red;               /* viền đỏ giống hình mẫu - có thể xoá */
+  transition: var(--mainTransition);
+}
+.feature_item:hover { background: var(--primary); }
+.feature_title {
+  color: var(--primary);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.7rem;
+  text-transform: uppercase;
+}
+.feature_text { max-width: 32rem; margin: 0 auto; }
+.feature_item:hover .feature_title { color: #fff; }
+.feature_item:hover .feature_text { color: var(--dark); }
+
+/* ========== ẢNH ABOUT (hover zoom) ========== */
+.about_left {
+  background: var(--primary);
+  border: 0.5rem solid var(--primary);
+  border-radius: 2rem;
+  overflow: hidden;
+  width: 90%;
+}
+.about__img { display: block; width: 100%; transition: all 0.3s linear; }
+.about_left:hover .about__img { opacity: 0.5; transform: scale(1.2); }
+
+/* ========== CSS GRID (Lab 6.2) ========== */
+.script { font-family: "Gochi Hand", cursive; font-weight: 400; color: var(--primary); font-size: 2rem; letter-spacing: 0.4rem; }
+.title { font-size: 2.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1rem; line-height: 1.2; }
+.btn--light:link, .btn--light:visited {
+  background: #eee; color: var(--primary); border: none; border-radius: 0.5rem;
+  padding: 0.8rem 1.6rem; font-size: 1.1rem; letter-spacing: 0.15rem;
+}
+
+/* Màn hình 1: 4 cột bằng nhau */
+#features { display: grid; grid-template-columns: 25% 25% 25% 25%; }
+#features .feature_title { letter-spacing: 0.5rem; }
+
+/* Màn hình 2: About */
+#about {
+  padding: 8rem 5%;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 50% 50%;
+}
+.about_right { align-self: center; max-width: 32rem; }
+.about_right .title { margin-bottom: 1.6rem; }
+.about_right p { font-size: 1.4rem; margin-bottom: 1.4rem; }
+
+/* Màn hình 3: Products */
+#products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 24rem));
+  justify-content: center;
+  gap: 4rem;
+  padding: 8rem 5%;
+  background: var(--dark);
+  color: #fff;
+}
+.products_text, .product_item { border: 1px solid red; border-bottom: 3px solid var(--primary); padding-bottom: 6rem; }
+.products_text .title { margin-bottom: 1rem; }
+.products_text p { font-size: 1.3rem; margin-bottom: 1.4rem; }
+.product_item img { display: block; width: 100%; border-radius: 1.5rem; margin-bottom: 2.2rem; }
+.product_title { font-size: 1.4rem; letter-spacing: 0.25rem; text-transform: uppercase; }
+.product_price { font-family: "Gochi Hand", cursive; color: var(--primary); font-size: 1.8rem; margin-top: 1rem; }
+
+/* Màn hình 4: Services */
+#services { background: var(--grey); padding: 4rem 5% 8rem; }
+.services_head { text-align: center; margin-bottom: 5rem; }
+.services_list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 24rem));
+  justify-content: center;
+  gap: 4rem;
+}
+.service_card {
+  background: var(--primary);
+  border: 0.3rem solid var(--primary);
+  border-radius: 2rem;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 2.4rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+}
+.service_card img { display: block; width: 100%; height: 14rem; object-fit: cover; }
+.service_card h4 { color: #fff; font-size: 1.5rem; letter-spacing: 0.15rem; margin: 2.2rem 1rem 1.4rem; }
+
+/* Màn hình 5: Contact */
+#contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 8rem 10%;
+  background: var(--light);
+}
+.contact_info { display: grid; gap: 3.5rem; align-content: center; }
+.contact_info p { font-size: 1.3rem; text-transform: uppercase; }
+.contact_form {
+  display: grid;
+  gap: 0.6rem;
+  background: #fff;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.12);
+}
+.contact_title { font-family: "Gochi Hand", cursive; font-weight: 400; color: #5b7c99; text-align: center; font-size: 2rem; letter-spacing: 0.3rem; margin-bottom: 2.4rem; }
+.contact_form input, .contact_form textarea {
+  margin: 0 1rem; padding: 0.8rem; border: none; background: var(--light);
+  font: inherit; font-size: 1.1rem; letter-spacing: 0.25rem; text-transform: uppercase;
+}
+.contact_form button {
+  margin-top: 0.8rem; padding: 1.1rem; border: none; cursor: pointer;
+  background: var(--primary); color: #fff; font: inherit; font-size: 1.2rem; letter-spacing: 0.4rem; text-transform: uppercase;
+}
+
+/* Màn hình nhỏ */
+@media (max-width: 800px) {
+  #features { grid-template-columns: 50% 50%; }
+  #about, #contact { grid-template-columns: 100%; }
+  #about .about_right { margin-top: 3rem; }
+  #products, .services_list { grid-template-columns: minmax(0, 28rem); }
+}

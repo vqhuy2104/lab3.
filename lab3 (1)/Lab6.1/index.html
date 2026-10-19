@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 6.1 - Flexbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;800&family=Gochi+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Menu ẩn/hiện bằng checkbox + :checked (không cần JavaScript) -->
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="menu-button">
+    <span class="icon-open">&#9776;</span>
+    <span class="icon-close">&#10005;</span>
+  </label>
+  <nav class="nav">
+    <ul class="nav__list">
+      <li><a class="nav__link" href="#features">Features</a></li>
+      <li><a class="nav__link" href="#about">About</a></li>
+      <li><a class="nav__link" href="#products">Products</a></li>
+      <li><a class="nav__link" href="#services">Services</a></li>
+      <li><a class="nav__link" href="#contact">Contacts</a></li>
+    </ul>
+  </nav>
+  <header class="header" id="home">
+    <h2 class="heading_first heading_first--animation">Over one hunred flavors of tea</h2>
+    <h1 class="heading_primary">Specially crafted tea</h1>
+    <a href="#about" class="header__btn">Explore</a>
+  </header>
+  <section id="features">
+    <div class="feature_item">
+      <h3 class="feature_title">Made with love</h3>
+      <p class="feature_text">Our tea is made with love, from the collection of the leaves to the brewing.</p>
+    </div>
+    <div class="feature_item">
+      <h3 class="feature_title">Relaxation</h3>
+      <p class="feature_text">Set aside anxiety and relax after a hard day with a cup of hot tea in your hands.</p>
+    </div>
+    <div class="feature_item">
+      <h3 class="feature_title">Energy</h3>
+      <p class="feature_text">Our tea will energize you with vitamins and invigorate the rest of the day.</p>
+    </div>
+    <div class="feature_item">
+      <h3 class="feature_title">Family recipe</h3>
+      <p class="feature_text">All our recipes are passed down from generation to generation for a long time.</p>
+    </div>
+  </section>
+
+</body>
+</html>

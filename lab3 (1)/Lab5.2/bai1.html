@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 5.2 - Bài 1: transform, transition & animation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;800&family=Gochi+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bai1.css">
+</head>
+<body>
+  <!-- Menu ẩn/hiện bằng checkbox + :checked (không cần JavaScript) -->
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="menu-button">
+    <span class="icon-open">&#9776;</span>
+    <span class="icon-close">&#10005;</span>
+  </label>
+  <nav class="nav">
+    <ul class="nav__list">
+      <li><a class="nav__link" href="#features">Features</a></li>
+      <li><a class="nav__link" href="#about">About</a></li>
+      <li><a class="nav__link" href="#products">Products</a></li>
+      <li><a class="nav__link" href="#services">Services</a></li>
+      <li><a class="nav__link" href="#contact">Contacts</a></li>
+    </ul>
+  </nav>
+  <header class="header" id="home">
+    <h2 class="heading_first heading_first--animation">Over one hunred flavors of tea</h2>
+    <h1 class="heading_primary">Specially crafted tea</h1>
+    <a href="#about" class="header__btn">Explore</a>
+  </header>
+  <!-- Màn hình 3: ảnh zoom khi hover -->
+  <section id="about" class="about-demo">
+    <div class="about_left">
+      <img src="./images/about-bcg.jpeg" width="100%" alt="About Us" class="about__img">
+    </div>
+  </section>
+</body>
+</html>

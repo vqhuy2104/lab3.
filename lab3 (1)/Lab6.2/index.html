@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 6.2 - CSS Grid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;800&family=Gochi+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Menu ẩn/hiện bằng checkbox + :checked (không cần JavaScript) -->
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" class="menu-button">
+    <span class="icon-open">&#9776;</span>
+    <span class="icon-close">&#10005;</span>
+  </label>
+  <nav class="nav">
+    <ul class="nav__list">
+      <li><a class="nav__link" href="#features">Features</a></li>
+      <li><a class="nav__link" href="#about">About</a></li>
+      <li><a class="nav__link" href="#products">Products</a></li>
+      <li><a class="nav__link" href="#services">Services</a></li>
+      <li><a class="nav__link" href="#contact">Contacts</a></li>
+    </ul>
+  </nav>
+  <header class="header" id="home">
+    <h2 class="heading_first heading_first--animation">Over one hunred flavors of tea</h2>
+    <h1 class="heading_primary">Specially crafted tea</h1>
+    <a href="#about" class="header__btn">Explore</a>
+  </header>
+  <section id="features">
+    <div class="feature_item">
+      <h3 class="feature_title">Made with love</h3>
+      <p class="feature_text">Our tea is made with love, from the collection of the leaves to the brewing.</p>
+    </div>
+    <div class="feature_item">
+      <h3 class="feature_title">Relaxation</h3>
+      <p class="feature_text">Set aside anxiety and relax after a hard day with a cup of hot tea in your hands.</p>
+    </div>
+    <div class="feature_item">
+      <h3 class="feature_title">Energy</h3>
+      <p class="feature_text">Our tea will energize you with vitamins and invigorate the rest of the day.</p>
+    </div>
+    <div class="feature_item">
+      <h3 class="feature_title">Family recipe</h3>
+      <p class="feature_text">All our recipes are passed down from generation to generation for a long time.</p>
+    </div>
+  </section>
+
+  <!-- Màn hình 2: About (grid 50% 50%) -->
+  <section id="about">
+    <div class="about_left">
+      <img src="./images/about-bcg.jpeg" width="100%" alt="About Us" class="about__img">
+    </div>
+    <div class="about_right">
+      <h3 class="script">About Our</h3>
+      <h2 class="title">Tea Station</h2>
+      <p>Once upon a time we only had a couple of teapots and enjoyed tea only with our family. Over time, we were able to afford to buy a small tea plantation</p>
+      <p>Now we have a whole teahouse and we delight many people with delicious and hot tea. We serve black long tea, relaxing green and jasmine tea, tea with spices and many others.</p>
+      <a href="#" class="btn">Learn more</a>
+    </div>
+  </section>
+
+  <!-- Màn hình 3: Products (grid 3 cột) -->
+  <section id="products">
+    <div class="products_text">
+      <h3 class="script">Check Out</h3>
+      <h2 class="title">Our Products</h2>
+      <p>Our assortment includes long tea, relaxing and invigorating green tea with spices, lemon juice, jasmine, cinnamon and anise, milk tea and many others.</p>
+      <a href="#" class="btn">Inventory</a>
+    </div>
+    <div class="product_item">
+      <img src="./images/black-tea.jpeg" alt="Black long tea">
+      <h4 class="product_title">Black long tea</h4>
+      <p class="product_price">$ 3.99</p>
+    </div>
+    <div class="product_item">
+      <img src="./images/green-tea.jpeg" alt="Green tea with jasmine">
+      <h4 class="product_title">Green tea with jasmine</h4>
+      <p class="product_price">$ 4.99</p>
+    </div>
+  </section>
+
+  <!-- Màn hình 4: Services (grid 3 cột) -->
+  <section id="services">
+    <div class="services_head">
+      <h3 class="script">Explore</h3>
+      <h2 class="title">Our Services</h2>
+    </div>
+    <div class="services_list">
+      <article class="service_card">
+        <img src="./images/service-1.jpeg" alt="Custom recipe">
+        <h4>Custom Recipe Service</h4>
+        <a href="#" class="btn btn--light">Read More</a>
+      </article>
+      <article class="service_card">
+        <img src="./images/service-2.jpeg" alt="Home delivery">
+        <h4>Home Delivery Service</h4>
+        <a href="#" class="btn btn--light">Read More</a>
+      </article>
+      <article class="service_card">
+        <img src="./images/service-1.jpeg" alt="Tea aging">
+        <h4>Tea Aging Service</h4>
+        <a href="#" class="btn btn--light">Read More</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Màn hình 5: Contact (grid 2 cột) -->
+  <section id="contact">
+    <div class="contact_info">
+      <div><h3 class="script">address</h3><p>523 N Fairfax Ave<br>Los Angeles, CA 90048</p></div>
+      <div><h3 class="script">email</h3><p>email@email.com</p></div>
+      <div><h3 class="script">telephone</h3><p>+ 123 456 789</p></div>
+    </div>
+    <form class="contact_form" action="#" method="post">
+      <h3 class="contact_title">contact us</h3>
+      <input type="text" placeholder="Name" aria-label="Name">
+      <input type="email" placeholder="Email" aria-label="Email">
+      <textarea rows="4" placeholder="Message" aria-label="Message"></textarea>
+      <button type="submit">Submit here</button>
+    </form>
+  </section>
+</body>
+</html>

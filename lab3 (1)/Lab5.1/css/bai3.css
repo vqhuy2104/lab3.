@@ -1,0 +1,71 @@
+/* ========== BIẾN & RESET ========== */
+:root {
+  --primary: #6b8a42;
+  --dark: #373b36;
+  --light: #eef3f3;
+  --grey: #dedede;
+  --mainTransition: all 0.3s linear;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 62.5%; scroll-behavior: smooth; }   /* 1rem = 10px */
+body { font-family: "Catamaran", sans-serif; font-size: 1.6rem; color: #222; line-height: 1.6; }
+
+
+/* ========== MENU NGANG: display:inline-block (có thể thay bằng position) ========== */
+.topnav { position: fixed; top: 0; left: 0; width: 100%; background: #e0e0e0; z-index: 10; }
+.topnav__list { list-style: none; text-align: center; }
+.topnav__item { display: inline-block; }
+.topnav__item a {
+  display: block;
+  padding: 1.1rem 1.4rem;
+  color: #333;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.topnav__item a:hover { color: var(--primary); }
+/* ========== HEADER (hero) ========== */
+.header {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("../images/header-bcg.jpeg") center / cover no-repeat,
+    #1c1a17;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  padding: 2rem;
+}
+.heading_first {
+  font-family: "Gochi Hand", cursive;
+  font-weight: 400;
+  font-size: 2.4rem;
+  letter-spacing: 0.5rem;
+  color: var(--primary);
+  margin-bottom: 3rem;
+}
+.heading_primary {
+  color: #fff;
+  font-size: clamp(3.4rem, 7vw, 6rem);
+  font-weight: 800;
+  letter-spacing: 0.6rem;
+  text-transform: uppercase;
+  margin-bottom: 5rem;
+}
+.header__btn:link, .header__btn:visited, .btn:link, .btn:visited {
+  display: inline-block;
+  padding: 1.1rem 3rem;
+  background: var(--primary);
+  color: var(--dark);
+  border: 5px double #a9c47f;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.7rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}

@@ -1,0 +1,15 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+.banner {
+  min-height: 100vh;
+  background: url("../images/beach.jpeg") center / cover no-repeat, #5bb5e6;
+  display: flex;                  /* căn giữa tiêu đề theo cả 2 chiều */
+  justify-content: center;
+  align-items: center;
+}
+.banner__title {
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  color: #e8302a;
+  text-transform: uppercase;
+  text-align: center;
+}
